@@ -419,3 +419,23 @@ function twentysixteen_widget_tag_cloud_args( $args ) {
 	return $args;
 }
 add_filter( 'widget_tag_cloud_args', 'twentysixteen_widget_tag_cloud_args' );
+
+
+/* CHANGE LOGIN */
+
+function my_custom_login_logo() {
+     echo '<style type="text/css">                                                                   
+         h1 a { background-image:url('.get_stylesheet_directory_uri().'/img/login_logo.png) !important; }                            
+     </style>';
+}
+add_action('login_head', 'my_custom_login_logo');
+
+function my_custom_login_url() {
+     return get_bloginfo('url');
+}
+add_filter('login_headerurl', 'my_custom_login_url');
+
+function my_custom_login_title() {
+     return get_bloginfo('description');
+}
+add_filter('login_headertitle', 'my_custom_login_title');
